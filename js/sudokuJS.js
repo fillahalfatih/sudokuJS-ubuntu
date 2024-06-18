@@ -1800,3 +1800,12 @@
 	};
 
 })(window, jQuery);
+
+var mySudokuJS = $("#sudoku").sudokuJS({
+	boardSize: 9
+});
+
+$(".js-solve-step-btn").on("click", mySudokuJS.solveStep);
+$(".js-solve-all-btn").on("click", mySudokuJS.solveAll);
+$(".js-generate-board-btn").on("click", mySudokuJS.generateBoard);
+$(".js-clear-board-btn").on("click", mySudokuJS.clearBoard);
