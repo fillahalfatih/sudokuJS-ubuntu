@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<link rel="stylesheet" media="all" type="text/css" href="css/sudokuJS.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			font-family: Arial, Helvetica, sans-serif, 'Poppins';
+		}
+
+		html,
+		body {
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.wrap {
+			padding: 2em 1em;
+			width: 400px;
+			max-width: 100%;
+		}
+
+		.button-container {
+			padding-right: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 8px;
+			margin-bottom: 15px;
+		}
+
+		.button-container button {
+			width: 100%;
+			height: 45px;
+		}
+
+		@media (min-width: 30em) {
+			.wrap {
+				width: 490px;
+			}
+
+			.sudoku-board input {
+				font-size: 24px;
+				font-size: 1.5rem;
+			}
+
+			.sudoku-board .candidates {
+				font-size: .8em;
+			}
+		}
+	</style>
+
+	<title class="text-center">SudokuJS - Demo</title>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/sudokuJS.js"></script>
+</head>
+
+<body>
+	<div class="wrap">
+		<!--generate button-->
+		<div class="button-container">
+			<button type="button" class="js-generate-board-btn btn btn-success">Generate</button>
+		</div>
+
+		<div id="sudoku" class="sudoku-board">
+		</div>
+
+		<!--solve buttons-->
+		<div class="button-container">
+			<button type="button" class="js-solve-step-btn btn btn-primary">One Step</button>
+			<button type="button" class="js-solve-all-btn btn btn-primary">All</button>
+			<button type="button" class="js-clear-board-btn btn btn-danger">Clear</button>
+			<!-- <button type="button" class="js-analyzed-board-btn btn btn-danger">Analyzed</button> -->
+			<!-- <button type="button" class="js-hide-board-btn btn btn-danger">Hide</button> -->
+		</div>
+	</div>
+
+	<script>
+		var mySudokuJS = $("#sudoku").sudokuJS({
+			boardSize: 9
+		});
+
+		$(".js-solve-step-btn").on("click", mySudokuJS.solveStep);
+		$(".js-solve-all-btn").on("click", mySudokuJS.solveAll);
+		$(".js-generate-board-btn").on("click", mySudokuJS.generateBoard);
+		$(".js-clear-board-btn").on("click", mySudokuJS.clearBoard);
+	</script>
+</body>
+
+</html>

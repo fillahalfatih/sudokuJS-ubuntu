@@ -1,0 +1,11 @@
+{
+  "name": "sudokujs",
+  "version": "1.0.0",
+  "description": "Web-based sudoku solver & generator",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Group 3 --- ENIGMA",
+  "license": "ISC"
+}
